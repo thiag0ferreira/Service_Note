@@ -30,14 +30,14 @@ const Servicos = () => {
         }
 
         if (editando !== null) {
-            axios.put(`http://localhost:5000/servicos/${editando}`, novoServico)
+            axios.put(`https://service-note.onrender.com/servicos/${editando}`, novoServico)
                 .then(res => {
                     setServicos(servicos.map(servico => servico._id === editando ? res.data : servico));
                     setEditando(null);
                 })
                 .catch(err => console.error("Erro ao atualizar serviço:", err));
         } else {
-            axios.post("http://localhost:5000/servicos", novoServico)
+            axios.post("https://service-note.onrender.com/servicos", novoServico)
                 .then(res => setServicos([...servicos, res.data]))
                 .catch(err => console.error("Erro ao adicionar serviço:", err));
         }
@@ -46,7 +46,7 @@ const Servicos = () => {
     };
 
     const excluirServico = (id) => {
-        axios.delete(`http://localhost:5000/servicos/${id}`)
+        axios.delete(`https://service-note.onrender.com/servicos/${id}`)
             .then(() => setServicos(servicos.filter(servico => servico._id !== id)))
             .catch(err => console.error("Erro ao excluir serviço:", err));
     };

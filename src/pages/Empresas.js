@@ -29,14 +29,14 @@ const Empresas = () => {
         }
 
         if (editando !== null) {
-            axios.put(`http://localhost:5000/empresas/${editando}`, novaEmpresa)
+            axios.put(`https://service-note.onrender.com/empresas/${editando}`, novaEmpresa)
                 .then(() => {
                     carregarEmpresas();
                     setEditando(null);
                 })
                 .catch(err => console.error("Erro ao atualizar empresa:", err));
         } else {
-            axios.post("http://localhost:5000/empresas", novaEmpresa)
+            axios.post("https://service-note.onrender.com/empresas", novaEmpresa)
                 .then(() => carregarEmpresas())
                 .catch(err => console.error("Erro ao adicionar empresa:", err));
         }
@@ -52,7 +52,7 @@ const Empresas = () => {
 
     const excluirEmpresa = (id) => {
         if (window.confirm("Tem certeza que deseja excluir esta empresa?")) {
-            axios.delete(`http://localhost:5000/empresas/${id}`)
+            axios.delete(`https://service-note.onrender.com/empresas/${id}`)
                 .then(() => {
                     carregarEmpresas(); // Atualiza a lista após a exclusão
                     alert("Empresa excluída com sucesso!");
