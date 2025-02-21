@@ -7,7 +7,7 @@ const Home = () => {
     const [mostrarServicos, setMostrarServicos] = useState(true);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/servicos")
+        axios.get("https://service-note.onrender.com/servicos")
             .then((res) => setServicos(res.data))
             .catch((err) => console.error("Erro ao buscar serviços:", err));
     }, []);
@@ -17,7 +17,7 @@ const Home = () => {
         if (!servico) return;
 
         try {
-            const { data } = await axios.put(`http://localhost:5000/servicos/${id}`, { finalizado: !servico.finalizado });
+            const { data } = await axios.put(`https://service-note.onrender.com/servicos/${id}`, { finalizado: !servico.finalizado });
             setServicos(servicos.map((s) => (s._id === id ? data : s)));
         } catch (err) {
             console.error("Erro ao atualizar serviço:", err);

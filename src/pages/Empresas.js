@@ -13,7 +13,7 @@ const Empresas = () => {
     }, []);
 
     const carregarEmpresas = () => {
-        axios.get("http://localhost:5000/empresas")
+        axios.get("https://service-note.onrender.com/empresas")
             .then(res => setEmpresas(res.data))
             .catch(err => console.error("Erro ao buscar empresas:", err));
     };

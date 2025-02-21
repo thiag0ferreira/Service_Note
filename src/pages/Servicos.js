@@ -10,11 +10,11 @@ const Servicos = () => {
     const [mostrarServicos, setMostrarServicos] = useState(true);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/servicos")
+        axios.get("https://service-note.onrender.com/servicos")
             .then(res => setServicos(res.data))
             .catch(err => console.error("Erro ao buscar serviços:", err));
 
-        axios.get("http://localhost:5000/empresas")
+        axios.get("https://service-note.onrender.com/empresas")
             .then(res => setEmpresas(res.data))
             .catch(err => console.error("Erro ao buscar empresas:", err));
     }, []);
